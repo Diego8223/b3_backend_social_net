@@ -5,7 +5,19 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import UserRoutes from "./routes/users.js";
 import PublicationRoutes from "./routes/publications.js";
-import FollowRoutes from "./routes/follows.js"
+import FollowRoutes from "./routes/follows.js";
+import dotenv from "dotenv";
+import pkg from 'cloudinary';
+const { v2: cloudinary } = pkg;
+
+dotenv.config();
+
+// Configurar Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 
 // Mensaje de Bienvenida para verificare ejecutó la API de Node
