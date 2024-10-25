@@ -18,7 +18,7 @@ export const saveFollow = async (req, res) => {
     const { followed_user } = req.body;
 
     // Obtener el ID del usuario autenticado que va a buscar a otro usuario para seguir
-    const identity = req.user; 
+    const identity = req.user;
 
     // Verificar si identity contiene al usuario autenticado
     if(!identity || !identity.userId){
@@ -119,7 +119,7 @@ export const saveFollow = async (req, res) => {
 // Método para eliminar un follow (dejar de seguir)
 export const unfollow = async (req, res) => {
   try {
-    // Obtener el Id del usuario indentificado
+    // Obtener el Id del usuario indentificado desde el token
     const userId = req.user.userId;
 
     // Obtener el Id del usuario que sigo y quiero dejar de seguir
