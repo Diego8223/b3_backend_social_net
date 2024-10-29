@@ -389,7 +389,7 @@ export const counters = async (req, res) => {
   try {
     // Obtener el Id del usuario autenticado (token)
     let userId = req.user.userId;
-    console.log("ID del usuario autenticado:", userId);
+
 
     // Si llega el id a través de los parámetros en la URL tiene prioridad
     if(req.params.id){
@@ -398,7 +398,7 @@ export const counters = async (req, res) => {
 
     // Obtener el nombre y apellido del usuario
     const user = await User.findById(userId, { name: 1, last_name: 1});
-    console.log("Usuario encontrado:", user);
+
 
 
     // Vericar el user
@@ -417,7 +417,7 @@ export const counters = async (req, res) => {
 
     // Contador de publicaciones del usuario autenticado
     const publicationsCount = await Publication.countDocuments({ "user_id": userId });
-console.log("Contadores:", { followingCount, followedCount, publicationsCount });
+
     // Devolver los contadores
     return res.status(200).json({
       status: "success",
